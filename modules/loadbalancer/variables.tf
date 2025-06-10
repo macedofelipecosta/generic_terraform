@@ -18,9 +18,16 @@ variable "security_group_ids" {
   type        = list(string)
 }
 
-variable "target_port" {
-  description = "Port on which targets receive traffic"
+variable "target_port_vote" {
   type        = number
   default     = 80
+  description = "Puerto interno del contenedor vote"
 }
+
+variable "target_port_result" {
+  type        = number
+  default     = 80
+  description = "Puerto interno del contenedor result"
+}
+
 
