@@ -49,11 +49,6 @@ variable "desired_count" {
   default     = 1
 }
 
-variable "subnet_ids" {
-  description = "Lista de subnets donde correr la tarea"
-  type        = list(string)
-}
-
 variable "security_group_ids" {
   description = "Lista de security groups"
   type        = list(string)
@@ -76,3 +71,12 @@ variable "tags" {
   default     = {}
 }
 
+variable "subnet_ids" {
+  description = "Subnets donde se lanzarán las tareas"
+  type        = list(string)
+}
+
+variable "target_group_arn" {
+  description = "ARN del target group del load balancer"
+  type        = string
+}
