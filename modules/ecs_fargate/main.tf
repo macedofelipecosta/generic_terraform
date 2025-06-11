@@ -48,6 +48,13 @@ resource "aws_ecs_service" "this" {
     security_groups = var.security_group_ids
   }
 
+  load_balancer {
+    target_group_arn = var.target_group_arn
+    container_name   = var.container_name
+    container_port   = var.container_port
+  }
+
+
   depends_on = [aws_ecs_task_definition.this]
   tags       = var.tags
 }

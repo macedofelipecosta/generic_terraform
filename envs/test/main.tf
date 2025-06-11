@@ -23,18 +23,20 @@ module "alb" {
   target_port        = var.app_port
 }
 
-module "ecs_vote" {
-  source             = "../../modules/ecs"
+module "ecs_fargate" {
+  source             = "../../modules/ecs_fargate"
   environment        = var.environment
-  service_name       = "vote"
+  service_name       = "ecs_fargate_voting_app"
   image_url          = var.vote_image_url
   container_port     = var.app_port
   desired_count      = 1
   subnet_ids         = module.network.private_subnet_ids
-  security_group_ids = [module.security_groups.ecs_sg_id]
-  target_group_arn   = module.alb.target_group_arn
   cpu                = "256"
   memory             = "512"
+  security_group_ids = [module.security_groups.ecs_sg_id]
+  target_group_arn   = module.alb.target_group_arn
+  vpc_id             = module.network.vpc_id
   aws_region         = var.aws_region
+
 }
 
