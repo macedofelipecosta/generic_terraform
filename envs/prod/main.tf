@@ -23,6 +23,7 @@ module "alb" {
   target_port        = var.app_port
 }
 
+
 module "ecs_fargate" {
   source             = "../../modules/ecs_fargate"
   environment        = var.environment
@@ -38,5 +39,5 @@ module "ecs_fargate" {
   vpc_id             = module.network.vpc_id
   aws_region         = var.aws_region
 
-}
+
 

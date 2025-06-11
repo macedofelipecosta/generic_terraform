@@ -45,4 +45,3 @@ module "ecs_fargate" {
   }
 }
 
-
