@@ -1,6 +1,6 @@
 output "alb_dns_name" {
   description = "DNS name of the load balancer"
-  value       = aws_lb.app.dns_name
+  value = aws_lb.app.dns_name
 }
 
 output "alb_arn" {
@@ -14,3 +14,4 @@ output "target_group_arn_vote" {
 output "target_group_arn_result" {
   value = aws_lb_target_group.result.arn
 }
+

@@ -50,7 +50,7 @@ resource "aws_nat_gateway" "nat" {
 }
 
 resource "aws_eip" "nat" {
-  vpc = true
+  // vpc = true
   tags = {
     Name        = "${var.environment}-nat-eip"
     Environment = var.environment
