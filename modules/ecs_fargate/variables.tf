@@ -71,12 +71,9 @@ variable "tags" {
   default     = {}
 }
 
+
 variable "subnet_ids" {
   description = "Subnets donde se lanzarán las tareas"
   type        = list(string)
 }
 
-variable "target_group_arn" {
-  description = "ARN del target group del load balancer"
-  type        = string
-}

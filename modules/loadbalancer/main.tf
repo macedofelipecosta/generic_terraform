@@ -76,13 +76,13 @@ resource "aws_lb_listener_rule" "vote" {
   listener_arn = aws_lb_listener.http.arn
   priority     = 1
 
-  conditions {
+  condition {
     path_pattern {
       values = ["/vote*", "/"]
     }
   }
 
-  actions {
+  action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.vote.arn
   }
@@ -92,13 +92,13 @@ resource "aws_lb_listener_rule" "result" {
   listener_arn = aws_lb_listener.http.arn
   priority     = 2
 
-  conditions {
+  condition {
     path_pattern {
       values = ["/result*"]
     }
   }
 
-  actions {
+  action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.result.arn
   }
