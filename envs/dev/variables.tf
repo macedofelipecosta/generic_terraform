@@ -9,3 +9,10 @@ variable "app_port" { type = number }
 variable "vote_image_url" {}
 variable "aws_region" {}
 
+variable "cluster_name" {}
+variable "task_family" {}
+variable "container_name" {}
+
+variable "execution_role_arn" {}
+variable "task_role_arn" {}
+
